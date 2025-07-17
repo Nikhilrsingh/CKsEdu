@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Mail, Lock } from "lucide-react";
 import axios from "axios";
 import AuthContext from "../Context/AuthContext";
+import BACKEND_URL from "../../Config/index.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://cksedu-backend.vercel.app/api/v1/users/login",
+        `${BACKEND_URL}/api/v1/users/login`,
         { email, password }, // send credentials in request body
         { withCredentials: true } // correct key is withCredentials (not withcredential)
       );

@@ -11,6 +11,7 @@ import {
 import logo1 from "../../../public/logo.png";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import BACKEND_URL from "../../Config/index.js";
 
 function EmailVerification() {
   const [searchParams] = useSearchParams();
@@ -31,7 +32,7 @@ function EmailVerification() {
         console.log(token);
 
         const res = await axios.get(
-          `https://cksedu-backend.vercel.app/api/v1/users/verify-email?token=${token}`,
+          `${BACKEND_URL}/api/v1/users/verify-email?token=${token}`,
           { withCredentials: true }
         );
         console.log("response ", res);
@@ -95,7 +96,7 @@ function EmailVerification() {
 
     try {
       const response = await axios.post(
-        "https://cksedu-backend.vercel.app/api/v1/users/resend-email-verication",
+        `${BACKEND_URL}/api/v1/users/resend-email-verication`,
         { email: email.trim() },
         { withCredentials: true }
       );

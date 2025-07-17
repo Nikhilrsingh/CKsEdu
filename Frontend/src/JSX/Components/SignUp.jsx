@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { User, Mail, Lock } from "lucide-react";
 import axios from "axios";
+import BACKEND_URL from "../../Config/index.js";
 
 const SignUp = () => {
     const [userName, setUserName]= useState("");
@@ -27,7 +28,7 @@ const handleSubmit = async (e) => {
 
   try {
     const res = await axios.post(
-      "https://cksedu-backend.vercel.app/api/v1/users/register",
+      `${BACKEND_URL}/api/v1/users/register`,
       {
         userName,
         fullName,

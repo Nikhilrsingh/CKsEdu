@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AuthContext from "./AuthContext";
+import BACKEND_URL from "../../Config/index.js";
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -10,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          "https://cksedu-backend.vercel.app/api/v1/users/current-user",
+          `${BACKEND_URL}/api/v1/users/current-user`,
           { withCredentials: true }
         );
         if (res.data?.data) {
@@ -35,7 +36,7 @@ export const AuthContextProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        "https://cksedu-backend.vercel.app/api/v1/users/logout",
+        `${BACKEND_URL}/api/v1/users/logout`,
         {},
         { withCredentials: true }
       );
