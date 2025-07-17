@@ -31,7 +31,7 @@ function EmailVerification() {
         console.log(token);
 
         const res = await axios.get(
-          `https://api.cksedu.vercel.app/api/v1/users/verify-email?token=${token}`,
+          `https://cksedu-backend.vercel.app/api/v1/users/verify-email?token=${token}`,
           { withCredentials: true }
         );
         console.log("response ", res);
@@ -95,7 +95,7 @@ function EmailVerification() {
 
     try {
       const response = await axios.post(
-        "https://api.cksedu.vercel.app/api/v1/users/resend-email-verication",
+        "https://cksedu-backend.vercel.app/api/v1/users/resend-email-verication",
         { email: email.trim() },
         { withCredentials: true }
       );

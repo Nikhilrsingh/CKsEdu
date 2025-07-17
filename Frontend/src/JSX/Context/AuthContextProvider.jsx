@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          "https://api.cksedu.vercel.app/api/v1/users/current-user",
+          "https://cksedu-backend.vercel.app/api/v1/users/current-user",
           { withCredentials: true }
         );
         if (res.data?.data) {
@@ -35,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        "https://api.cksedu.vercel.app/api/v1/users/logout",
+        "https://cksedu-backend.vercel.app/api/v1/users/logout",
         {},
         { withCredentials: true }
       );

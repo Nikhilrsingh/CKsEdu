@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://api.cksedu.vercel.app/api/v1/users/login",
+        "https://cksedu-backend.vercel.app/api/v1/users/login",
         { email, password }, // send credentials in request body
         { withCredentials: true } // correct key is withCredentials (not withcredential)
       );

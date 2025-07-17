@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
 
   try {
     const res = await axios.post(
-      "https://api.cksedu.vercel.app/api/v1/users/register",
+      "https://cksedu-backend.vercel.app/api/v1/users/register",
       {
         userName,
         fullName,

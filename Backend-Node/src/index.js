@@ -15,6 +15,6 @@ connectDB()
     console.error("MongoDB connection failed:", error);
   });
 
-app.get("", (req, res) => {
-  res.send("Welcome to Smart CRM");
+app.get("/", (req, res) => {
+  res.send("Welcome to CKsEdu");
 });
