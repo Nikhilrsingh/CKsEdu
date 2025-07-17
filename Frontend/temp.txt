@@ -1,0 +1,361 @@
+////////////////////////////////////////////////////// code /////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////    SIDEBAR    //////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Content components for each section
+// const contentComponents = {
+//   mentoring: {
+//     title: "Mentoring",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Find Your Mentor
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Connect with experienced mentors who can guide you through your
+//             academic journey.
+//           </p>
+//           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+//             Browse Mentors
+//           </button>
+//         </div>
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Your Mentoring Sessions
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300">
+//             No upcoming sessions scheduled.
+//           </p>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   "ai-assist": {
+//     title: "AI Assist",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             AI Study Assistant
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Get intelligent help with your studies, homework, and research.
+//           </p>
+//           <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//             <input
+//               type="text"
+//               placeholder="Ask me anything about your studies..."
+//               className="w-full bg-transparent border-none outline-none text-gray-800 dark:text-white"
+//             />
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   "e-library": {
+//     title: "E-Library",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Digital Library
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Access thousands of digital books, research papers, and academic
+//             resources.
+//           </p>
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Mathematics
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 1,234 resources
+//               </p>
+//             </div>
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Science
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 2,156 resources
+//               </p>
+//             </div>
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Literature
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 987 resources
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   "student-chat": {
+//     title: "Student Chat",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Study Groups
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Connect with fellow students and join study groups.
+//           </p>
+//           <div className="space-y-3">
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Calculus Study Group
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 12 members • Active now
+//               </p>
+//             </div>
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Physics Problem Solving
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 8 members • 2 hours ago
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   quizzes: {
+//     title: "Quizzes",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Available Quizzes
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Test your knowledge with interactive quizzes and practice tests.
+//           </p>
+//           <div className="space-y-3">
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex justify-between items-center">
+//               <div>
+//                 <h3 className="font-semibold text-gray-800 dark:text-white">
+//                   Mathematics Quiz #1
+//                 </h3>
+//                 <p className="text-sm text-gray-600 dark:text-gray-300">
+//                   20 questions • 30 minutes
+//                 </p>
+//               </div>
+//               <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+//                 Start Quiz
+//               </button>
+//             </div>
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex justify-between items-center">
+//               <div>
+//                 <h3 className="font-semibold text-gray-800 dark:text-white">
+//                   Science Review
+//                 </h3>
+//                 <p className="text-sm text-gray-600 dark:text-gray-300">
+//                   15 questions • 20 minutes
+//                 </p>
+//               </div>
+//               <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+//                 Start Quiz
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   events: {
+//     title: "Events",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Upcoming Events
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Stay updated with academic events, workshops, and seminars.
+//           </p>
+//           <div className="space-y-4">
+//             <div className="border-l-4 border-blue-500 pl-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Math Workshop
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 Tomorrow at 2:00 PM
+//               </p>
+//             </div>
+//             <div className="border-l-4 border-green-500 pl-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Science Fair
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 Friday at 10:00 AM
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   resources: {
+//     title: "Resources",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Learning Resources
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Access study guides, templates, and educational materials.
+//           </p>
+//           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Study Guides
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 Comprehensive study materials
+//               </p>
+//             </div>
+//             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+//               <h3 className="font-semibold text-gray-800 dark:text-white">
+//                 Templates
+//               </h3>
+//               <p className="text-sm text-gray-600 dark:text-gray-300">
+//                 Essay and report templates
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   counseling: {
+//     title: "Counseling",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Academic Counseling
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             Get support for your academic and personal development.
+//           </p>
+//           <div className="space-y-3">
+//             <button className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors text-left">
+//               Schedule Counseling Session
+//             </button>
+//             <button className="w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-left">
+//               View Past Sessions
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+//   leaderboard: {
+//     title: "Leaderboard",
+//     content: (
+//       <div className="space-y-6">
+//         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+//           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+//             Top Students
+//           </h2>
+//           <p className="text-gray-600 dark:text-gray-300 mb-4">
+//             See how you rank among your peers.
+//           </p>
+//           <div className="space-y-3">
+//             <div className="flex items-center justify-between bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
+//               <div className="flex items-center">
+//                 <span className="text-2xl mr-3">🥇</span>
+//                 <span className="font-semibold text-gray-800 dark:text-white">
+//                   Alex Johnson
+//                 </span>
+//               </div>
+//               <span className="text-yellow-600 dark:text-yellow-400 font-semibold">
+//                 2,450 pts
+//               </span>
+//             </div>
+//             <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+//               <div className="flex items-center">
+//                 <span className="text-2xl mr-3">🥈</span>
+//                 <span className="font-semibold text-gray-800 dark:text-white">
+//                   Sarah Chen
+//                 </span>
+//               </div>
+//               <span className="text-gray-600 dark:text-gray-300 font-semibold">
+//                 2,380 pts
+//               </span>
+//             </div>
+//             <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+//               <div className="flex items-center">
+//                 <span className="text-2xl mr-3">🥉</span>
+//                 <span className="font-semibold text-gray-800 dark:text-white">
+//                   Mike Rodriguez
+//                 </span>
+//               </div>
+//               <span className="text-gray-600 dark:text-gray-300 font-semibold">
+//                 2,340 pts
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ),
+//   },
+// };
+
+// Main App component
+// const App = () => {
+//   const [activeSection, setActiveSection] = useState("mentoring");
+//   const [isDarkMode, setIsDarkMode] = useState(false);
+
+//   const toggleDarkMode = () => {
+//     setIsDarkMode(!isDarkMode);
+//   };
+
+//   const currentContent = contentComponents[activeSection];
+
+//   return (
+//     <div className={isDarkMode ? "dark" : ""}>
+//       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+//         <Sidebar
+//           activeSection={activeSection}
+//           onSectionChange={setActiveSection}
+//         />
+
+//         {/* Main Content Area */}
+//         <div className="ml-64 transition-all duration-300">
+//           <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+//             <div className="px-6 py-4 flex justify-between items-center">
+//               <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+//                 {currentContent.title}
+//               </h1>
+//               <button
+//                 onClick={toggleDarkMode}
+//                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+//               >
+//                 {isDarkMode ? "☀️" : "🌙"}
+//               </button>
+//             </div>
+//           </header>
+
+//           <main className="p-6">{currentContent.content}</main>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
