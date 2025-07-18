@@ -49,12 +49,11 @@
 
 
 ---
-
 ## 📂 Project Structure
 
-### 📁 Backend/
+### 📁 Backend-Node/
 ```
-Backend/
+Backend-Node/
 ├── Public/
 ├── src/
 │   ├── Controllers/
@@ -67,33 +66,38 @@ Backend/
 │   ├── Constants.js
 │   └── index.js
 ├── .env
+├── .env.sample
+├── .gitignore
 ├── package.json
 ├── vercel.json
 ```
+
+---
 
 ### 📁 Frontend/
 ```
 Frontend/
 ├── public/
 ├── src/
+│   ├── assets/
+│   ├── Config/
 │   ├── JSX/
 │   │   ├── Components/
-│   │   ├── Components-V1/
-│   │   ├── context/
+│   │   ├── Context/
 │   │   └── Pages/
 │   ├── TSX/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── pages/
 │   ├── App.jsx
 │   ├── main.jsx
+│   ├── App.css
 │   └── index.css
-├── tailwind.config.js
+├── .env
+├── .gitignore
 ├── vite.config.js
 ├── tsconfig.json
 ├── package.json
 ├── vercel.json
 ```
+
 
 ---
 
