@@ -7,8 +7,8 @@ import AuthContext from "../Context/AuthContext";
 import BACKEND_URL from "../../Config/index.js";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("developer123@gmail.com");
+  const [password, setPassword] = useState("developer@123");
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
