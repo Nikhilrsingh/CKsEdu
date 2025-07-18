@@ -2,8 +2,11 @@
 import React, { useContext, useState } from "react";
 import { ShoppingCart, User, Menu, X } from "lucide-react";
 import AuthContext from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -20,8 +23,8 @@ export default function Navbar() {
     // { name: "Career", href: "#", active: false },
   ];
 
-  const {user} = useContext(AuthContext);
-  console.log(user)
+  const { user, logout } = useContext(AuthContext);
+  console.log(user);
 
   return (
     // KEY CHANGES FOR GLASSMORPHISM:
@@ -34,8 +37,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="flex items-center space-x-3">
-            <a href="#" className="flex items-center space-x-3">
-              {/* This div is the circular frame */}
+            <button href="#" className="flex items-center space-x-3"
+            onClick={()=>navigate("")}
+            >
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/50 shadow-lg">
                 <img
                   src="/logo.png"
@@ -47,7 +51,7 @@ export default function Navbar() {
               <h1 className="text-slate-800 text-xl font-bold tracking-wide">
                 CKsEdu
               </h1>
-            </a>
+            </button>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -71,6 +75,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Side Actions */}
+
           <div className="flex items-center space-x-4">
             {/* Cart Icon */}
             {/* <div className="relative">
@@ -79,33 +84,24 @@ export default function Navbar() {
             </button>
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
             </div>  */}
-
-            {/* Log in Link */}
-
-            {!user && (
-              <a
-                href="#"
-                // Changed text color for better contrast
-                className="hidden sm:flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200"
-              >
-                <User size={18} />
-                <span className="text-sm">Log in</span>
-              </a>
-            )}
-            {!user && (
-              <a
-                href="#"
-                // Changed text color for better contrast
-                className="hidden sm:flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors duration-200"
-              >
-                <User size={18} />
-                <span className="text-sm">Log in</span>
-              </a>
-            )}
+            <button
+              className="hidden sm:block px-4 py-2 bg-slate-800 text-white rounded-lg text-sm font-medium hover:bg-slate-700 transition-all duration-200 shadow-md"
+              onClick={logout}
+            >
+              Logout
+            </button>
 
             {/* Contact Button - A solid button provides good contrast against the glass */}
-            <button className="hidden sm:block px-4 py-2 bg-slate-800 text-white rounded-lg text-sm font-medium hover:bg-slate-700 transition-all duration-200 shadow-md">
-              Profile
+            <button
+              className="hidden sm:block rounded-full transition-all duration-200 hover:ring-2 hover:ring-offset-2 hover:ring-slate-400 focus:outline-none"
+              onClick={() => navigate("profile")}
+              aria-label="View Profile" // Important for accessibility!
+            >
+              <img
+                className="h-10 w-10 rounded-full object-cover" // Control size and shape here
+                src={"#"}
+                alt="User profile"
+              />
             </button>
 
             {/* Mobile Menu Button */}
@@ -148,16 +144,19 @@ export default function Navbar() {
 
               {/* Mobile-only actions */}
               <div className="pt-4 mt-2 border-t border-white/30 space-y-3">
-                <a
-                  href="#"
+                <button
                   className="flex items-center space-x-3 px-4 py-3 text-slate-700 hover:bg-white/20 hover:text-slate-900 rounded-lg transition-all duration-200"
+                  onClick={() => logout()}
                 >
                   <User size={18} />
-                  <span className="text-base">Log in</span>
-                </a>
+                  <span className="text-base">Log Out</span>
+                </button>
 
-                <button className="w-full px-4 py-3 bg-slate-800 text-white rounded-lg text-base font-medium hover:bg-slate-700 transition-all duration-200 shadow-md">
-                  Contact
+                <button
+                  className="w-full px-4 py-3 bg-slate-800 text-white rounded-lg text-base font-medium hover:bg-slate-700 transition-all duration-200 shadow-md"
+                  onClick={() => navigate("profile")}
+                >
+                  Profile
                 </button>
               </div>
             </div>
