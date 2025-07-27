@@ -1,5 +1,8 @@
 # 🎓 CKsEdu – Smart University Collaboration Platform
 
+[![GirlScript Summer of Code](https://img.shields.io/badge/GSSoC-2025-orange.svg)](https://gssoc.girlscript.tech/)
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+
 **CKsEdu** is a modern digital platform that connects students and faculty in universities through real-time mentoring, AI-powered academic tools, and collaborative learning features. Built to simplify university life, it enables seamless interaction, resource sharing, and personalized academic support.
 
 ---
@@ -132,8 +135,7 @@ npm run dev
 
 ## 🤝 Contributing
 
-We welcome contributions from the open-source community!  
-Please watch the repo for updates — contribution guidelines will be published soon.
+We love contributions from the community! Whether you're a beginner or an experienced developer, your input is valuable. Please read our [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.
 
 ---
 
