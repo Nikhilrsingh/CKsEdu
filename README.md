@@ -1,6 +1,6 @@
 # CKsEdu
 
-[![GirlScript Summer of Code](https://img.shields.io/badge/GSSoC-2024-orange.svg)](https://gssoc.girlscript.tech/)
+[![GirlScript Summer of Code](https://img.shields.io/badge/GSSoC-2025-orange.svg)](https://gssoc.girlscript.tech/)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
 CKsEdu is a collaborative, beginner-friendly web application designed to foster learning and mentorship. Built as part of the GirlScript Summer of Code (GSSoC), this project welcomes contributors of all experience levels to join and make a difference in the open-source community.
