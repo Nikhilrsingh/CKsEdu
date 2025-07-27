@@ -38,7 +38,7 @@ Thank you for your interest in contributing to CKsEdu! We welcome all contributo
 
    - **Backend:**
      ```bash
-     npm start
+     npm run dev
      ```
 
    - **Frontend:**
