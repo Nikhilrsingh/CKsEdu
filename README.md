@@ -16,9 +16,6 @@ CKsEdu aims to provide a platform for students and mentors to connect, learn, an
 - **Database:** (Add your DB here, e.g., MongoDB, PostgreSQL)
 - **Other:** Cloudinary (for media), ESLint (for code quality)
 
-## 📦 Getting Started
-
-To set up the project locally, please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed instructions.
 
 ## 🤝 Contributing
 
@@ -30,7 +27,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 💬 Community & Support
 
-- Join the [GSSoC Discord](https://discord.gg/gssoc) for discussions and support.
+- Join the [GSSoC Discord](https://discord.com/channels/1378815292729327728/1390014367214600262) for discussions and support.
 - For issues or feature requests, please use the [GitHub Issues](../../issues) tab.
 
 ---
