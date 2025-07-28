@@ -15,20 +15,28 @@ export const AuthContextProvider = ({ children }) => {
           { withCredentials: true }
         );
         if (res.data?.data) {
-        //   console.log("user from Auth Provider route", res.data.data);
+          //   console.log("user from Auth Provider route", res.data.data);
           setUser(res.data.data);
         } else {
           setUser(null);
         }
       } catch (error) {
         // console.error("Error fetching user:", error);
+        // For development: Don't show auth errors in console
         setUser(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUser();
+    // For development: Only fetch user if we're in a logged-in state
+    // This prevents the 401 error on initial load
+    const hasCookies = document.cookie.includes('accessToken') || document.cookie.includes('refreshToken');
+    if (hasCookies) {
+      fetchUser();
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   const login = (userData) => setUser(userData);
@@ -41,7 +49,7 @@ export const AuthContextProvider = ({ children }) => {
         { withCredentials: true }
       );
     } catch (err) {
-    //   console.error("Logout failed:", err);
+      //   console.error("Logout failed:", err);
     }
     setUser(null);
   };

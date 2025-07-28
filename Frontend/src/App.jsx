@@ -4,41 +4,45 @@ import Navbar from './JSX/Components/Navbar';
 import Footer from './JSX/Components/Footer';
 import Sidebar from './JSX/Components/Sidebar';
 import { useState } from 'react';
+import { useTheme } from './JSX/Context/ThemeContext';
 
 function App() {
+  const { darkMode } = useTheme();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  return (
+    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+      <div className={`transition-colors duration-300 ${darkMode
+          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900"
+          : "bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+        }`}>
+        <Sidebar
+          isCollapsed={isSidebarCollapsed}
+          setIsCollapsed={setIsSidebarCollapsed}
+          activeSection={activeSection}
+          onSectionChange={setActiveSection}
+        />
 
-   const [activeSection, setActiveSection] = useState("");
+        <div
+          className={`
+           transition-all duration-300 ease-in-out
+           // On large screens, apply margin to account for the sidebar
+           lg:ml-20 ${!isSidebarCollapsed && "lg:ml-64"} 
+           // On mobile, sidebar is an overlay, so no margin is needed
+         `}
+        >
+          <Navbar />
 
-   return (
-     <div className="min-h-screen bg-slate-100">
-       <Sidebar
-         isCollapsed={isSidebarCollapsed}
-         setIsCollapsed={setIsSidebarCollapsed}
-         activeSection={activeSection}
-         onSectionChange={setActiveSection}
-       />
+          <main className="p-4 pt-24 lg:p-6 lg:pt-28">
+            <Outlet />
+          </main>
 
-       <div
-         className={`
-          transition-all duration-300 ease-in-out
-          // On large screens, apply margin to account for the sidebar
-          lg:ml-20 ${!isSidebarCollapsed && "lg:ml-64"} 
-          // On mobile, sidebar is an overlay, so no margin is needed
-        `}
-       >
-         <Navbar />
-
-         <main className="p-4 pt-24 lg:p-6 lg:pt-28">
-           <Outlet />
-         </main>
-
-         <Footer />
-       </div>
-     </div>
-   );
-
+          <Footer />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App
