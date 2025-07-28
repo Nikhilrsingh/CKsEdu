@@ -14,10 +14,12 @@ import {
   Trophy,
   Home
 } from "lucide-react";
+import { useTheme } from "../Context/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 // KEY CHANGE 1: Added an `href` property to each item for navigation.
 const navigationItems = [
-  { name: "Home", id:"home", icon: Home, href:"/app"},
+  { name: "Home", id: "home", icon: Home, href: "/app" },
   { name: "Mentoring", id: "mentoring", icon: Users, href: "/app/mentoring" },
   { name: "AIAssist", id: "ai-assist", icon: Bot, href: "/app/ai-assist" },
   { name: "E-Library", id: "e-library", icon: BookOpen, href: "/e-library" },
@@ -45,14 +47,16 @@ const Sidebar = ({
   activeSection,
   onSectionChange,
 }) => {
-//   const [isCollapsed, setIsCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const handleNavClick = (sectionId) => {
+  const handleNavClick = (sectionId, href) => {
     onSectionChange(sectionId);
+    navigate(href);
     // This is still useful for single-page app state management
     // and for collapsing the menu on mobile after a click.
     if (window.innerWidth < 1024) {
@@ -72,15 +76,17 @@ const Sidebar = ({
           // The height is now automatic, not full-screen.
           top-1/2 -translate-y-1/2
           
-          // Glassmorphism styles (unchanged)
-          bg-white/20 backdrop-blur-lg shadow-lg 
-          border border-white/30 rounded-2xl
+          // Glassmorphism styles with proper dark mode support
+          ${darkMode
+            ? 'bg-gray-800/20 backdrop-blur-lg shadow-lg border border-gray-700/30'
+            : 'bg-white/20 backdrop-blur-lg shadow-lg border border-white/30'
+          } rounded-2xl
           
           // Width transition
           ${isCollapsed ? "w-20" : "w-64"}
         `}
       >
-      
+
         <div className="p-2">
           <nav className="space-y-1">
             {navigationItems.map((item) => {
@@ -88,16 +94,18 @@ const Sidebar = ({
               const isActive = activeSection === item.id;
 
               return (
-                <a
+                <button
                   key={item.name}
-                  href={item.href} 
-                  onClick={() => handleNavClick(item.id)} 
+                  onClick={() => handleNavClick(item.id, item.href)}
                   className={`
                     w-full flex items-center p-3 rounded-lg
                     transition-all duration-200 text-left
-                    ${
-                      isActive
-                        ? "bg-white/40 text-slate-900 font-semibold shadow-sm"
+                    ${isActive
+                      ? darkMode
+                        ? "bg-blue-600/40 text-white font-semibold shadow-sm"
+                        : "bg-white/40 text-slate-900 font-semibold shadow-sm"
+                      : darkMode
+                        ? "text-gray-300 hover:bg-gray-700/30 hover:text-white"
                         : "text-slate-700 hover:bg-white/20 hover:text-slate-900"
                     }
                     ${isCollapsed ? "justify-center" : ""}
@@ -113,7 +121,7 @@ const Sidebar = ({
                   >
                     {item.name}
                   </span>
-                </a>
+                </button>
               );
             })}
           </nav>
@@ -126,15 +134,16 @@ const Sidebar = ({
             absolute top-1/2 -translate-y-1/2 -right-4
             w-8 h-8 rounded-full flex items-center justify-center
             transition-all duration-200
-            bg-white/20 backdrop-blur-lg shadow-md
-            border border-white/30 
-            hover:bg-white/40
+            ${darkMode
+              ? 'bg-gray-800/20 backdrop-blur-lg shadow-md border border-gray-700/30 hover:bg-gray-700/40'
+              : 'bg-white/20 backdrop-blur-lg shadow-md border border-white/30 hover:bg-white/40'
+            }
           `}
         >
           {isCollapsed ? (
-            <ChevronRight className="w-5 h-5 text-slate-700" />
+            <ChevronRight className={`w-5 h-5 ${darkMode ? 'text-gray-300' : 'text-slate-700'}`} />
           ) : (
-            <ChevronLeft className="w-5 h-5 text-slate-700" />
+            <ChevronLeft className={`w-5 h-5 ${darkMode ? 'text-gray-300' : 'text-slate-700'}`} />
           )}
         </button>
       </aside>

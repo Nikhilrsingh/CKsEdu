@@ -7,6 +7,7 @@ import LoginPage from './JSX/Pages/LoginPage';
 import SignUpPage from './JSX/Pages/SignUpPage';
 import LandingPage from './JSX/Pages/LandingPage';
 import AuthContextProvider from './JSX/Context/AuthContextProvider';
+import { ThemeProvider } from './JSX/Context/ThemeContext';
 import ProtectedRoute from './JSX/Components/Protection/ProtectedRoute';
 import EmailVerification from './JSX/Components/EmailVerification';
 import StudentDashboard from './JSX/Components/StudentDashboard';
@@ -61,6 +62,8 @@ const router = createBrowserRouter([
 ]);
 ReactDom.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
-    <RouterProvider router={router} />
-   </AuthContextProvider>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </AuthContextProvider>
 );

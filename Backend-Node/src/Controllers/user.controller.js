@@ -69,7 +69,7 @@ const generateAccessAndRefreshToken = async (userId) => {
   try {
     const user = await User.findById(userId);
     const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateREfreshToken();
+    const refreshToken = await user.generateRefreshToken();
 
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false });
@@ -319,9 +319,9 @@ const sendResetPasswordEmail = AsyncHandler(async (req, res) => {
   if (!send_email) {
     throw new ApiError(401, "Failed to send email for reset password");
   }
-    return res
-      .status(200)
-      .json(new ApiResponse(200, null, "Password reset email sent"));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, null, "Password reset email sent"));
 });
 const resetPassword = AsyncHandler(async (req, res) => {
   const { token, newPassword } = req.body;
@@ -370,7 +370,7 @@ const updateaccountDetails = AsyncHandler(async (req, res) => {
     {
       $set: {
         fullName: fullName,
-        email: email, 
+        email: email,
       },
     },
     { new: true }
@@ -421,11 +421,11 @@ const sendMail = async (emailId, htmlContent) => {
         pass: "dofsbprmfxdfljbe",
       },
     });
-  const receiver = {
-    from: '"CksEdu" <krishchothani259@gmail.com>',
-    to: emailId,
-    ...htmlContent,
-  };
+    const receiver = {
+      from: '"CksEdu" <krishchothani259@gmail.com>',
+      to: emailId,
+      ...htmlContent,
+    };
 
 
     return new Promise((resolve, reject) => {
@@ -474,10 +474,10 @@ const healthCheck = AsyncHandler(async (req, res) => {
     return res.status(404).json(new ApiResponse(404, null, "User not found"));
   }
   const showstatus = {
-        status: "OK",
-        user,
-        message: "Server is up and running"
-    }
+    status: "OK",
+    user,
+    message: "Server is up and running"
+  }
   return res
     .status(200)
     .json(new ApiResponse(200, showstatus, "Account Details"));
