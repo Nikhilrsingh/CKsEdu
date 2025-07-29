@@ -14,6 +14,7 @@ import StudentDashboard from './JSX/Components/StudentDashboard';
 import StudentProfile from './JSX/Components/StudentProfile';
 import Mentoring from './JSX/Components/Mentoring';
 import AiAssist from './JSX/Components/AiAssist';
+import Resources from './JSX/Components/Resources';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "ai-assist",
         element: <AiAssist />,
+      },
+      {
+        path: "resources",
+        element: <Resources />,
       },
     ],
   },
