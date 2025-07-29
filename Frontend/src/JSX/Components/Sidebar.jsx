@@ -31,7 +31,7 @@ const navigationItems = [
   },
   { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/quizzes" },
   { name: "Events", id: "events", icon: Calendar, href: "/events" },
-  { name: "Resources", id: "resources", icon: FolderOpen, href: "/resources" },
+  { name: "Resources", id: "resources", icon: FolderOpen, href: "/app/resources" },
   { name: "Counseling", id: "counseling", icon: Heart, href: "/counseling" },
   {
     name: "Leaderboard",
