@@ -1,0 +1,32 @@
+---
+name: 🚀 Enhancement
+about: Suggest an enhancement to an existing feature
+labels: enhancement
+---
+
+<!--
+⚠️ IMPORTANT: Before submitting, please:
+1. Search existing issues to avoid creating duplicates
+2. Consider starring the repository to support the project and increase its reach
+-->
+
+
+## 📝 Description
+
+<!-- A clear and concise description of the enhancement you're suggesting. -->
+
+## 🎯 Expected Behavior
+
+<!-- What should happen with this enhancement? -->
+
+## 🔍 Current Behavior
+
+<!-- What currently happens without this enhancement? -->
+
+## 🛠️ Possible Solution
+
+<!-- Any ideas on how this enhancement could be implemented? -->
+
+## 📋 Additional Context
+
+<!-- Add any other context, screenshots, or references about the enhancement here. -->
