@@ -1,0 +1,56 @@
+name: "✨ Feature Request"
+description: Suggest a new feature for the project
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ IMPORTANT: Before submitting, please:
+        1. Search existing issues to avoid creating duplicates
+        2. Consider starring the repository to support the project and increase its reach
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: "🚀 Feature Description"
+      description: "A clear and concise description of the feature you'd like to see added."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "🎯 What problem does this solve?"
+      description: "Explain why this feature would be valuable to users."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "💡 Proposed Solution"
+      description: "Describe how you think this feature should work."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "🔄 Alternative Solutions"
+      description: "Are there any alternative solutions or features you've considered?"
+      placeholder: "(Optional)"
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "📸 Screenshots/Mockups"
+      description: "If applicable, add links to screenshots or mockups to help explain your idea."
+      placeholder: "(Optional)"
+      render: markdown
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "ℹ️ Additional Context"
+      description: "Add any other context about the feature request here."
+      placeholder: "(Optional)"
