@@ -1,36 +1,56 @@
----
-name: ✨ Feature Request
-about: Suggest a new feature for the project
-labels: feature
----
+name: "✨ Feature Request"
+description: Suggest a new feature for the project
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ IMPORTANT: Before submitting, please:
+        1. Search existing issues to avoid creating duplicates
+        2. Consider starring the repository to support the project and increase its reach
 
-<!--
-⚠️ IMPORTANT: Before submitting, please:
-1. Search existing issues to avoid creating duplicates
-2. Consider starring the repository to support the project and increase its reach
--->
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: "🚀 Feature Description"
+      description: "A clear and concise description of the feature you'd like to see added."
+    validations:
+      required: true
 
+  - type: textarea
+    id: problem
+    attributes:
+      label: "🎯 What problem does this solve?"
+      description: "Explain why this feature would be valuable to users."
+    validations:
+      required: true
 
-## 🚀 Feature Description
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "💡 Proposed Solution"
+      description: "Describe how you think this feature should work."
+    validations:
+      required: true
 
-<!-- A clear and concise description of the feature you'd like to see added. -->
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "🔄 Alternative Solutions"
+      description: "Are there any alternative solutions or features you've considered?"
+      placeholder: "(Optional)"
 
-## 🎯 What problem does this solve?
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "📸 Screenshots/Mockups"
+      description: "If applicable, add links to screenshots or mockups to help explain your idea."
+      placeholder: "(Optional)"
+      render: markdown
 
-<!-- Explain why this feature would be valuable to users. -->
-
-## 💡 Proposed Solution
-
-<!-- Describe how you think this feature should work. -->
-
-## 🔄 Alternative Solutions
-
-<!-- Are there any alternative solutions or features you've considered? -->
-
-## 📸 Screenshots/Mockups
-
-<!-- If applicable, add screenshots or mockups to help explain your idea. -->
-
-## ℹ️ Additional Context
-
-<!-- Add any other context about the feature request here. -->
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "ℹ️ Additional Context"
+      description: "Add any other context about the feature request here."
+      placeholder: "(Optional)"

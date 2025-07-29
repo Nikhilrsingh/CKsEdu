@@ -1,45 +1,92 @@
----
-name: 🐛 Bug Report
-about: Report a bug you've discovered
-labels: bug
----
+name: "🐛 Bug Report"
+description: Report a bug you've discovered
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ IMPORTANT: Before submitting, please:
+        1. Search existing issues to avoid creating duplicates
+        2. Consider starring the repository to support the project and increase its reach
 
-<!--
-⚠️ IMPORTANT: Before submitting, please:
-1. Search existing issues to avoid creating duplicates
-2. Consider starring the repository to support the project and increase its reach
--->
+  - type: textarea
+    id: description
+    attributes:
+      label: "🐞 Describe the Bug"
+      description: "A clear and concise description of what the bug is."
+    validations:
+      required: true
 
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "🔍 Steps to Reproduce"
+      description: "Steps to reproduce the behavior"
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
 
-## 🐞 Describe the Bug
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "🎯 Expected Behavior"
+      description: "A clear and concise description of what you expected to happen."
+    validations:
+      required: true
 
-<!-- A clear and concise description of what the bug is. -->
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "📱 Screenshots/Videos"
+      description: "If applicable, add links to screenshots or screen recordings to help explain your problem."
+      placeholder: "(Optional)"
+      render: markdown
 
-## 🔍 Steps to Reproduce
+  - type: dropdown
+    id: device-type
+    attributes:
+      label: "📱 Device Type"
+      description: "Select the type of device where the bug occurs"
+      options:
+        - "Desktop"
+        - "Mobile"
+        - "Tablet"
+        - "Other"
+    validations:
+      required: true
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+  - type: input
+    id: os
+    attributes:
+      label: "💻 Operating System"
+      description: "e.g., Windows 10, macOS 12.0, Android 11, iOS 15"
+      placeholder: "Windows 10"
+    validations:
+      required: true
 
-## 🎯 Expected Behavior
+  - type: input
+    id: browser
+    attributes:
+      label: "🌐 Browser"
+      description: "e.g., Chrome 98, Firefox 96, Safari 15"
+      placeholder: "Chrome 98"
+    validations:
+      required: true
 
-<!-- A clear and concise description of what you expected to happen. -->
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📋 Additional Context"
+      description: "Add any other context about the problem here."
+      placeholder: "(Optional)"
 
-## 📱 Screenshots/Videos
-
-<!-- If applicable, add screenshots or screen recordings to help explain your problem. -->
-
-## 🌍 Environment
-
-- Device: [e.g., iPhone 12, Windows 10 PC]
-- Browser: [e.g., Chrome 98, Safari 15]
-- OS: [e.g., iOS 15.2, Windows 10]
-
-## 📋 Additional Context
-
-<!-- Add any other context about the problem here. -->
-
-## 🛠️ Possible Solution
-
-<!-- If you have suggestions for a fix, please describe them here. -->
+  - type: textarea
+    id: possible-solution
+    attributes:
+      label: "🛠️ Possible Solution"
+      description: "If you have suggestions for a fix, please describe them here."
+      placeholder: "(Optional)"

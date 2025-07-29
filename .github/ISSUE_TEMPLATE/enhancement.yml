@@ -1,32 +1,48 @@
----
-name: 🚀 Enhancement
-about: Suggest an enhancement to an existing feature
-labels: enhancement
----
+name: "🚀 Enhancement"
+description: Suggest an enhancement to an existing feature
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ IMPORTANT: Before submitting, please:
+        1. Search existing issues to avoid creating duplicates
+        2. Consider starring the repository to support the project and increase its reach
 
-<!--
-⚠️ IMPORTANT: Before submitting, please:
-1. Search existing issues to avoid creating duplicates
-2. Consider starring the repository to support the project and increase its reach
--->
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 Description"
+      description: "A clear and concise description of the enhancement you're suggesting."
+    validations:
+      required: true
 
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "🎯 Expected Behavior"
+      description: "What should happen with this enhancement?"
+    validations:
+      required: true
 
-## 📝 Description
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: "🔍 Current Behavior"
+      description: "What currently happens without this enhancement?"
+    validations:
+      required: true
 
-<!-- A clear and concise description of the enhancement you're suggesting. -->
+  - type: textarea
+    id: possible-solution
+    attributes:
+      label: "🛠️ Possible Solution"
+      description: "Any ideas on how this enhancement could be implemented?"
+      placeholder: "(Optional)"
 
-## 🎯 Expected Behavior
-
-<!-- What should happen with this enhancement? -->
-
-## 🔍 Current Behavior
-
-<!-- What currently happens without this enhancement? -->
-
-## 🛠️ Possible Solution
-
-<!-- Any ideas on how this enhancement could be implemented? -->
-
-## 📋 Additional Context
-
-<!-- Add any other context, screenshots, or references about the enhancement here. -->
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📋 Additional Context"
+      description: "Add any other context, screenshots, or references about the enhancement here."
+      placeholder: "(Optional)"
