@@ -46,7 +46,11 @@ const SignUp = () => {
       );
 
       console.log("Sign up successful:", res.data);
-      toast.success("🎉 Account created successfully! Please sign in to continue.");
+      toast.success(
+        "🎉 Account created successfully! Please verify your email address and sign in to continue.",
+        { duration: 6000 }
+      );
+
       navigate("/");
     } catch (err) {
       const errorMessage =
@@ -175,7 +179,8 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center items-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300"
+                disabled={isLoading}
+                className={`w-full flex justify-center items-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 ${isLoading && 'cursor-not-allowed'}`}
               >
                 {isLoading ? <Loader2 className="animate-spin" /> : 'Sign Up'}
               </button>
