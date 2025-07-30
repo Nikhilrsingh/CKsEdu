@@ -47,11 +47,10 @@ const SignUp = () => {
 
       console.log("Sign up successful:", res.data);
       toast.success(
-        "🎉 Account created successfully! Please verify your email address and sign in to continue.",
+        "Please verify your email address before signing in.",
         { duration: 6000 }
       );
 
-      navigate("/");
     } catch (err) {
       const errorMessage =
         err.response?.data?.message ||
