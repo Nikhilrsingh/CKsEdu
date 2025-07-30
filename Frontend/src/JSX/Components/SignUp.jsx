@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, Loader2 } from "lucide-react";
 import axios from "axios";
 import { useTheme } from "../Context/ThemeContext";
 import BACKEND_URL from "../../Config/index.js";
@@ -13,6 +13,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate();
   const { darkMode } = useTheme();
 
@@ -30,6 +31,7 @@ const SignUp = () => {
     }
 
     try {
+      setIsLoading(true)
       const res = await axios.post(
         `${BACKEND_URL}/api/v1/users/register`,
         {
@@ -54,6 +56,8 @@ const SignUp = () => {
 
       console.error("Signup failed:", errorMessage);
       toast.error(`Signup failed: ${errorMessage}`);
+    } finally {
+      setIsLoading(false)
     }
 
   };
@@ -171,9 +175,9 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300"
+                className="w-full flex justify-center items-center py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300"
               >
-                Sign Up
+                {isLoading ? <Loader2 className="animate-spin" /> : 'Sign Up'}
               </button>
             </div>
           </form>
