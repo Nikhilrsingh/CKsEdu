@@ -1,4 +1,3 @@
-// src/pages/Login.jsx
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Mail, Lock } from "lucide-react";
@@ -6,6 +5,8 @@ import axios from "axios";
 import AuthContext from "../Context/AuthContext";
 import { useTheme } from "../Context/ThemeContext";
 import BACKEND_URL from "../../Config/index.js";
+
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("developer123@gmail.com");
@@ -18,35 +19,44 @@ const Login = () => {
     e.preventDefault();
 
     if (!email || !password) {
-      alert("Please enter both email and password.");
+      toast.error("Please provide both email and password to continue")
       return;
     }
 
     try {
       const res = await axios.post(
         `${BACKEND_URL}/api/v1/users/login`,
-        { email, password }, // send credentials in request body
-        { withCredentials: true } // correct key is withCredentials (not withcredential)
+        { email, password },
+        { withCredentials: true }
       );
 
-      if (res.data && res.data.data && res.data.data.user) {
-        login(res.data.data.user);
+      const user = res?.data?.data?.user;
+
+      if (user) {
+        login(user);
         console.log("Login successful", res.data);
+        toast.success(`Welcome back, ${user.fullName || 'User'}!`);
         navigate("/app");
       } else {
-        throw new Error("Invalid response format");
+        throw new Error("Unexpected server response.");
       }
     } catch (err) {
-      console.error("Login failed:", err.response?.data || err.message);
-      alert("Login failed. Please check your credentials or try again later.");
+      const errorMessage =
+        err.response?.data?.message ||
+        err.message ||
+        "An unexpected error occurred. Please try again later.";
+
+      console.error("Login failed:", errorMessage);
+      toast.error(`Login failed: ${errorMessage}`);
     }
+
   };
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
       <div className={`transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4 ${darkMode
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900"
-          : "bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+        ? "bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900"
+        : "bg-gradient-to-br from-indigo-50 via-white to-purple-50"
         }`}>
         {/* Logo */}
         <div className="mb-8">

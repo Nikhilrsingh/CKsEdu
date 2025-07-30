@@ -1,10 +1,11 @@
-// src/pages/SignUp.jsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { User, Mail, Lock } from "lucide-react";
 import axios from "axios";
 import { useTheme } from "../Context/ThemeContext";
 import BACKEND_URL from "../../Config/index.js";
+
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
@@ -19,12 +20,12 @@ const SignUp = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("The passwords you entered do not match. Please try again.")
       return;
     }
 
     if (!fullName || !email || !password || !userName) {
-      alert("Please fill in all fields.");
+      toast.error("All fields are required. Please ensure no field is left blank.")
       return;
     }
 
@@ -43,22 +44,25 @@ const SignUp = () => {
       );
 
       console.log("Sign up successful:", res.data);
-      alert("Account created successfully! Please sign in.");
+      toast.success("🎉 Account created successfully! Please sign in to continue.");
       navigate("/");
     } catch (err) {
-      console.error("Signup failed:", err.response?.data || err.message);
-      alert(
-        "Signup failed: " +
-        (err.response?.data?.message || "Please try again later.")
-      );
+      const errorMessage =
+        err.response?.data?.message ||
+        err.message ||
+        "An unexpected error occurred. Please try again later.";
+
+      console.error("Signup failed:", errorMessage);
+      toast.error(`Signup failed: ${errorMessage}`);
     }
+
   };
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
       <div className={`transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4 ${darkMode
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900"
-          : "bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+        ? "bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900"
+        : "bg-gradient-to-br from-indigo-50 via-white to-purple-50"
         }`}>
         {/* Logo */}
         <div className="mb-8">
