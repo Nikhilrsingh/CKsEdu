@@ -22,17 +22,24 @@ const ResetPassword = () => {
         if (tokenFromURL) {
             try {
                 const decoded = jwtDecode(tokenFromURL);
+                
+                // Check token expiration
+                if (decoded.exp && decoded.exp < Date.now() / 1000) {
+                    setError("Reset link has expired. Please request a new one.");
+                    return;
+                }
+
                 setToken(tokenFromURL);
                 if (decoded?.email) {
                     setEmail(decoded.email);
                 } else {
-                    setError("Invalid token format.");
+                    setError("Invalid reset link. Please request a new one.");
                 }
             } catch (err) {
                 setError("Failed to decode token.");
             }
         } else {
-            setError("Missing token.");
+            setError("Reset link is missing. Please check your email and try again.");
         }
     }, [searchParams]);
 
@@ -76,8 +83,8 @@ const ResetPassword = () => {
                 setError(res.data?.message || "Something went wrong.");
             }
         } catch (err) {
-            console.error(err);
-            setError("Something went wrong. Try again.");
+            const errorMessage = err.response?.data?.message || "Failed to reset password. Please try again.";
++            setError(errorMessage);
         } finally {
             setIsLoading(false);
         }
