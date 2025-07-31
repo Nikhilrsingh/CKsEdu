@@ -15,6 +15,12 @@ import StudentProfile from './JSX/Components/StudentProfile';
 import Mentoring from './JSX/Components/Mentoring';
 import AiAssist from './JSX/Components/AiAssist';
 import Resources from './JSX/Components/Resources';
+import CommunityPage from './JSX/Pages/CommunityPage';
+import CertificationsPage from './JSX/Pages/CertificationsPage';
+import TermsOfServicePage from './JSX/Pages/TermsOfServicePage';
+import PrivacyPolicyPage from './JSX/Pages/PrivacyPolicyPage';
+import HelpCentrePage from './JSX/Pages/HelpCentrePage';
+import ContactUsPage from './JSX/Pages/ContactUsPage';
 
 // toast
 import { Toaster } from 'react-hot-toast';
@@ -69,6 +75,28 @@ const router = createBrowserRouter([
     element: <EmailVerification />,
   },
   {
+    path: "/community",
+    element: <CommunityPage />,
+  },
+  {
+    path: "/certifications",
+    element: <CertificationsPage />,
+  },
+  {
+    path: "/terms-of-service",
+    element: <TermsOfServicePage />,
+  },
+  {
+    path: "/privacy-policy",
+    element: <PrivacyPolicyPage />,
+  },
+  {
+    path: "/help-centre",
+    element: <HelpCentrePage />,
+  },
+  {
+    path: "/contact-us",
+    element: <ContactUsPage />,
     path: "/reset-password",
     element: <ResetPassword />,
   },
