@@ -16,6 +16,9 @@ import Mentoring from './JSX/Components/Mentoring';
 import AiAssist from './JSX/Components/AiAssist';
 import Resources from './JSX/Components/Resources';
 
+// toast
+import { Toaster } from 'react-hot-toast';
+import ResetPassword from './JSX/Components/ResetPassword';
 
 const router = createBrowserRouter([
   {
@@ -64,11 +67,16 @@ const router = createBrowserRouter([
     path: "/verify-email",
     element: <EmailVerification />,
   },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
 ]);
 ReactDom.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
     <ThemeProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </ThemeProvider>
   </AuthContextProvider>
 );
