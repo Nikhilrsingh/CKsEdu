@@ -249,7 +249,7 @@ const VerifyEmail = () => {
         <div className="flex items-center justify-center mb-8">
           <div className="bg-indigo-600/10 group-hover:bg-indigo-600/20 rounded-xl px-6 py-5 transition-colors duration-300 flex flex-col items-center gap-3">
             <img src="/logo.png" alt="MatterAssist Logo" className="h-16 object-contain" />
-            <span className="text-indigo-100 text-base font-medium">MatterAssist</span>
+            <span className="text-indigo-100 text-base font-medium">CKsEdu</span>
           </div>
         </div>
 
