@@ -4,6 +4,7 @@ import { User } from "../Models/user.model.js";
 import { ApiResponse } from "../Utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import { FRONTEND_URL } from '../Constants.js';
 
 const LOGIN_USER_MAIL_TEMPLATE = (link) => ({
   subject: "Verify Your Email - Welcome to CksEdu!",
@@ -83,7 +84,7 @@ const generateAccessAndRefreshToken = async (userId) => {
   }
 };
 
-const registerUser = AsyncHandler (async (req, res) => {
+const registerUser = AsyncHandler(async (req, res) => {
 
   const { fullName, email, userName, password } = req.body;
 
@@ -116,14 +117,14 @@ const registerUser = AsyncHandler (async (req, res) => {
     throw new ApiError(500, "something went wrong while register the user");
   }
 
-  const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ userId: createdUser._id, email: createdUser.email }, process.env.JWT_SECRET, {
     expiresIn: "30m",
   });
-  const verifyLink = `https://www.cksedu.vercel.app/verify-email?token=${token}`;
+  const verifyLink = `${FRONTEND_URL}/verify-email?token=${token}`;
   const loginEmailTemplate = LOGIN_USER_MAIL_TEMPLATE(verifyLink);
   const send_email = await sendMail(email, loginEmailTemplate);
 
-  console.log("send_email" , send_email);
+  console.log("send_email", send_email);
   if (!send_email) {
     throw new ApiError(500, "something went wrong while sending the email");
   }
@@ -161,9 +162,9 @@ const loginUser = AsyncHandler(async (req, res) => {
   }
   // console.log(req.body);
 
-  if(!user.verified){
+  if (!user.verified) {
     console.log("verify your google account");
-    throw new ApiError("404" , "Verify your google account.");
+    throw new ApiError("404", "Verify your google account.");
   }
 
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
@@ -309,10 +310,10 @@ const sendResetPasswordEmail = AsyncHandler(async (req, res) => {
     throw new ApiError(404, "User not found with this email");
   }
 
-  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ userId: user._id, email: user.email }, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
-  const resetLink = `https://cksedu.vercel.app/reset-password?token=${token}`;
+  const resetLink = `${FRONTEND_URL}/reset-password?token=${token}`;
   const resetEmailTemplate = RESET_PASSWORD_MAIL_TEMPLATE(resetLink);
   // Use your sendMail utility here
   const send_email = await sendMail(email, resetEmailTemplate);
@@ -326,7 +327,7 @@ const sendResetPasswordEmail = AsyncHandler(async (req, res) => {
 const resetPassword = AsyncHandler(async (req, res) => {
   const { token, newPassword } = req.body;
   console.log("---------------------------------------------------------")
-  console.log(token,newPassword)
+  console.log(token, newPassword)
   console.log("---------------------------------------------------------");
 
   if (!token || !newPassword) {
@@ -379,21 +380,21 @@ const updateaccountDetails = AsyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, user, "Account Details"));
 });
 
-const resendEmailVerification = AsyncHandler(async(req,res) => {
-  const { email } =req.body;
+const resendEmailVerification = AsyncHandler(async (req, res) => {
+  const { email } = req.body;
 
   if (!email) {
     throw new ApiError(404, "Please Enter the Email Id.")
   }
   const user = await User.findOne({ email: email });
 
-  if(!user){
+  if (!user) {
     throw new ApiError(404, "Email Id Is not Found.");
   }
   const token = jwt.sign({ email }, process.env.JWT_SECRET, {
     expiresIn: "30m",
   });
-  const verifyLink = `https://cksedu.vercel.app/verify-email?token=${token}`;
+  const verifyLink = `${FRONTEND_URL}/verify-email?token=${token}`;
   const loginEmailTemplate = LOGIN_USER_MAIL_TEMPLATE(verifyLink);
   const send_email = await sendMail(email, loginEmailTemplate);
   // const send_email = await sendMail(email);
@@ -403,7 +404,7 @@ const resendEmailVerification = AsyncHandler(async(req,res) => {
   }
 
   return res.status(201).json(
-    new ApiResponse(200, send_email ,"Email Send Successfully on Given EmailId")
+    new ApiResponse(200, send_email, "Email Send Successfully on Given EmailId")
   )
 })
 
@@ -411,7 +412,7 @@ const sendMail = async (emailId, htmlContent) => {
   console.log("emailId", emailId, htmlContent);
   try {
     const token = jwt.sign({ emailId }, process.env.JWT_SECRET);
-    const verifyLink = `https://cksedu.vercel.app/verify-email?token=${token}`;
+    const verifyLink = `${FRONTEND_URL}/verify-email?token=${token}`;
     const auth = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
@@ -449,19 +450,21 @@ const sendMail = async (emailId, htmlContent) => {
 
 const verifyEmail = AsyncHandler(async (req, res) => {
   try {
+    console.log("Verifying mail")
     const { token } = req.query;
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     // console.log()
-    console.log("---------------decoded------------------",decoded);
+    console.log("---------------decoded------------------", decoded);
     const data = await User.findOneAndUpdate(
       { email: decoded.email },
       { $set: { verified: true } },
-      {new : true }
+      { new: true }
     );
-    console.log("verified",data);
+    console.log("verified", data);
 
     return res.status(200).json("Email verified successfully");
   } catch (error) {
+    console.log(error)
     throw new ApiError(500, "Something went wrong while verifying Email Address");
   }
 });

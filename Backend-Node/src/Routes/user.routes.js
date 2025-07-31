@@ -28,8 +28,8 @@ router.route("/refresh-token").post(refreshAccessToken);
 router.route("/current-user").get(verifyJWT, getCurrentUser);
 router.route("/update-account").patch(verifyJWT, updateaccountDetails);
 router.route("/verify-email").get(verifyEmail);
-router.route("/healthcheck").get(verifyJWT,healthCheck);
-router.route("/resend-email-verication").post(resendEmailVerification);
+router.route("/checkAuth").get(verifyJWT,healthCheck);
+router.route("/resend-email-verification").post(resendEmailVerification);
 router.route("/send-reset-password-link").post(sendResetPasswordEmail);
 router.route("/reset-password").post(resetPassword)
 export default router;

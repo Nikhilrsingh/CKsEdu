@@ -22,6 +22,10 @@ import PrivacyPolicyPage from './JSX/Pages/PrivacyPolicyPage';
 import HelpCentrePage from './JSX/Pages/HelpCentrePage';
 import ContactUsPage from './JSX/Pages/ContactUsPage';
 
+// toast
+import { Toaster } from 'react-hot-toast';
+import ResetPassword from './JSX/Components/ResetPassword';
+import NotFoundPage from './JSX/Components/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -93,12 +97,19 @@ const router = createBrowserRouter([
   {
     path: "/contact-us",
     element: <ContactUsPage />,
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 ReactDom.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
     <ThemeProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </ThemeProvider>
   </AuthContextProvider>
 );
