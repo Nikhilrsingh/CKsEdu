@@ -19,6 +19,7 @@ import Resources from './JSX/Components/Resources';
 // toast
 import { Toaster } from 'react-hot-toast';
 import ResetPassword from './JSX/Components/ResetPassword';
+import NotFoundPage from './JSX/Components/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPassword />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 ReactDom.createRoot(document.getElementById("root")).render(
