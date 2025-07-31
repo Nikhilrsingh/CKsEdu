@@ -1552,12 +1552,12 @@ export default function LandingPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/community" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Community
                     </a>
                   </li>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/certifications" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Certifications
                     </a>
                   </li>
@@ -1568,22 +1568,22 @@ export default function LandingPage() {
                 <h4 className={`font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Support</h4>
                 <ul className={`space-y-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/help-centre" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Help Center
                     </a>
                   </li>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/contact-us" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Contact Us
                     </a>
                   </li>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/privacy-policy" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Privacy Policy
                     </a>
                   </li>
                   <li>
-                    <a href="#" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
+                    <a href="/terms-of-service" className={`transition-colors ${darkMode ? 'hover:text-white' : 'hover:text-gray-900'}`}>
                       Terms of Service
                     </a>
                   </li>
