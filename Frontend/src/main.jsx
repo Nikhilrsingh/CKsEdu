@@ -97,6 +97,8 @@ const router = createBrowserRouter([
   {
     path: "/contact-us",
     element: <ContactUsPage />,
+  },
+  {
     path: "/reset-password",
     element: <ResetPassword />,
   },
