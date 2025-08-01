@@ -27,6 +27,7 @@ import { Toaster } from 'react-hot-toast';
 import ResetPassword from './JSX/Components/ResetPassword';
 import NotFoundPage from './JSX/Components/NotFoundPage';
 import QuizzesPage from './JSX/Pages/QuizzesPage';
+import LeaderboardPage from './JSX/Pages/LeaderboardPage';
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "quizzes",
         element: <QuizzesPage />,
+      },
+      {
+        path: "leaderboard",
+        element: <LeaderboardPage />,
       },
     ],
   },
