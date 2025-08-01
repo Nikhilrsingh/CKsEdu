@@ -1439,7 +1439,7 @@ export default function LandingPage() {
         <section id="pricing" className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50'} transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className={`text-4xl font-bold text-gray-900 ${darkMode ? `dark:text-white` : `dark:text-grey`} mb-4`}>
                 Choose Your Plan
               </h2>
 
