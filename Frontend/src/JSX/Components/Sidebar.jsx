@@ -29,7 +29,7 @@ const navigationItems = [
     icon: MessageCircle,
     href: "/student-chat",
   },
-  { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/quizzes" },
+  { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/app/quizzes" },
   { name: "Events", id: "events", icon: Calendar, href: "/events" },
   { name: "Resources", id: "resources", icon: FolderOpen, href: "/app/resources" },
   { name: "Counseling", id: "counseling", icon: Heart, href: "/counseling" },

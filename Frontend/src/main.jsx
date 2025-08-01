@@ -26,6 +26,7 @@ import ContactUsPage from './JSX/Pages/ContactUsPage';
 import { Toaster } from 'react-hot-toast';
 import ResetPassword from './JSX/Components/ResetPassword';
 import NotFoundPage from './JSX/Components/NotFoundPage';
+import QuizzesPage from './JSX/Pages/QuizzesPage';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "resources",
         element: <Resources />,
+      },
+      {
+        path: "quizzes",
+        element: <QuizzesPage />,
       },
     ],
   },
