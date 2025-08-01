@@ -29,7 +29,7 @@ const navigationItems = [
     icon: MessageCircle,
     href: "/student-chat",
   },
-  { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/quizzes" },
+  { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/app/quizzes" },
   { name: "Events", id: "events", icon: Calendar, href: "/events" },
   { name: "Resources", id: "resources", icon: FolderOpen, href: "/app/resources" },
   { name: "Counseling", id: "counseling", icon: Heart, href: "/counseling" },
@@ -72,7 +72,6 @@ const Sidebar = ({
           transition-all duration-300 ease-in-out
           
           // KEY CHANGE 2: Centering the sidebar vertically.
-          // We use top-1/2 and -translate-y-1/2 to perfectly center it.
           // The height is now automatic, not full-screen.
           top-1/2 -translate-y-1/2
           
