@@ -37,7 +37,7 @@ const navigationItems = [
     name: "Leaderboard",
     id: "leaderboard",
     icon: Trophy,
-    href: "/leaderboard",
+    href: "/app/leaderboard",
   },
 ];
 
