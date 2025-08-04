@@ -174,7 +174,7 @@ import { Toaster } from 'react-hot-toast';
 import EmailLayout from './JSX/Components/EmailLayout';
 import Inbox from './JSX/Components/Inbox';
 import Sent from './JSX/Components/Sent';
-import ComposeEmail from "./JSX/components/ComposeMail";
+import ComposeEmail from "./JSX/Components/ComposeMail";
 
 const router = createBrowserRouter([
   {
