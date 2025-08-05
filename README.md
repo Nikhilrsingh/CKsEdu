@@ -10,6 +10,7 @@
 ## 🚀 Features
 
 ### 👨‍🎓 For Students
+
 - 📞 1:1 Video Mentoring with Professors (live & scheduled)
 - 🤖 AI Assist: Smart scheduling, note-taking, and grading support
 - 💬 Student Chat & Group Collaboration
@@ -20,6 +21,7 @@
 - 📈 Academic Progress Dashboard
 
 ### 👩‍🏫 For Faculty
+
 - 📁 Smart Document Organizer
 - 📊 Student Analytics Dashboard
 - 🤖 AI Agent Integration:
@@ -33,28 +35,33 @@
 ## 🛠️ Tech Stack
 
 ### 💻 Frontend
+
 ![React](https://img.shields.io/badge/React-JS%20%26%20TS-blue?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-Fast%20Builds-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-Utility%20First-38B2AC?logo=tailwindcss&logoColor=white)
 
 ### 🔙 Backend
+
 ![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-Backend-black?logo=express&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-Microservice-white?logo=flask&logoColor=black)
 
 ### 🗄️ Database & Storage
+
 ![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb&logoColor=white)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-Storage-3448C5?logo=cloudinary&logoColor=white)
 
 ### 🚀 Deployment
+
 ![AWS](https://img.shields.io/badge/AWS-Cloud-232F3E?logo=amazonaws&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-Hosting-000000?logo=vercel&logoColor=white)
 
-
 ---
+
 ## 📂 Project Structure
 
 ### 📁 Backend-Node/
+
 ```
 Backend-Node/
 ├── Public/
@@ -78,6 +85,7 @@ Backend-Node/
 ---
 
 ### 📁 Frontend/
+
 ```
 Frontend/
 ├── public/
@@ -100,7 +108,6 @@ Frontend/
 ├── package.json
 ├── vercel.json
 ```
-
 
 ---
 
