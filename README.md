@@ -56,6 +56,13 @@
 ![AWS](https://img.shields.io/badge/AWS-Cloud-232F3E?logo=amazonaws&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-Hosting-000000?logo=vercel&logoColor=white)
 
+### 💻 App
+
+![React-Native](https://img.shields.io/badge/React-JS%20%26%20TS-blue?logo=react&logoColor=white)
+![React-Native](https://img.shields.io/badge/React-Native-Fast%20Builds-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-Utility%20First-38B2AC?logo=tailwindcss&logoColor=white)
+
+
 ---
 
 ## 📂 Project Structure
