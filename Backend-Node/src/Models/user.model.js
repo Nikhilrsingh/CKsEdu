@@ -4,37 +4,95 @@ import bcrypt from "bcrypt";
 
 const userSchema = new Schema(
   {
+    // Authentication & Identity
     userName: {
       type: String,
       required: true,
       unique: true,
-      lowercase: true,
       trim: true,
+      lowercase: true,
+      minlength: 3,
+      maxlength: 30,
       index: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      lowercase: true,
       trim: true,
+      lowercase: true,
+      index: true,
     },
     fullName: {
       type: String,
       required: true,
       trim: true,
+      maxlength: 100,
       index: true,
     },
     password: {
       type: String,
       required: [true, "Password is required"],
+      minlength: 6,
     },
+
+    // Account Status
     verified: {
       type: Boolean,
       default: false,
+      index: true,
     },
+    isActive: {
+      type: Boolean,
+      default: true,
+      index: true,
+    },
+
+    // Security
     refreshToken: {
       type: String,
+      default: null,
+    },
+    passwordResetToken: {
+      type: String,
+      default: null,
+    },
+    passwordResetExpires: {
+      type: Date,
+      default: null,
+    },
+    emailVerificationToken: {
+      type: String,
+      default: null,
+    },
+    emailVerificationExpires: {
+      type: Date,
+      default: null,
+    },
+
+    // Role Management
+    role: {
+      type: String,
+      enum: ['student', 'professor', 'clg-admin', 'super-admin'],
+      required: true,
+      default: 'student',
+      index: true,
+    },
+
+    // Profile Completion
+    profileCompleted: {
+      type: Boolean,
+      default: false,
+    },
+
+    // Activity Tracking
+    lastLogin: {
+      type: Date,
+      default: null,
+    },
+    loginCount: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }
