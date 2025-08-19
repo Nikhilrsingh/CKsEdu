@@ -77,14 +77,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f9fc",
   },
   container: {
-    padding: 16,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
     paddingBottom: 40,
   },
   greeting: {
     fontSize: 24,
     fontWeight: "700",
     color: "#1f2937",
-    marginTop: 20,
   },
   date: {
     fontSize: 14,
