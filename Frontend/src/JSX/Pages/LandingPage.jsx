@@ -874,7 +874,6 @@ const TestimonialCard = ({
     </div>
   );
 };
-
 const PricingCard = ({
   title,
   price,
@@ -893,18 +892,17 @@ const PricingCard = ({
 
   return (
     <div
-      className={`relative backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border ${isPopular
-        ? `ring-2 ring-indigo-500 scale-105 ${darkMode ? "border-indigo-700" : "border-indigo-200"}`
-        : `${darkMode ? "border-gray-700/50 hover:border-gray-600/60" : "border-gray-200/60 hover:border-indigo-300/60"}`
-        } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } ${darkMode
-          ? "bg-gray-800/40"
-          : "bg-white/80 hover:bg-white/90"
-        }`}
+      className={`relative backdrop-blur-sm rounded-xl p-6 shadow-md transition-all duration-500 transform
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+        ${darkMode ? "bg-gray-800/40 border border-white/30" : "bg-white/80 border border-black/20"}
+        ${darkMode ? "border-gray-700/50" : "border-gray-200/60"}
+        hover:scale-[1.03] hover:ring-2 hover:ring-indigo-500
+        ${darkMode ? "hover:border-indigo-400" : "hover:border-indigo-600"}
+      `}
     >
       {isPopular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-          <span className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+          <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
             Most Popular
           </span>
         </div>
@@ -931,12 +929,14 @@ const PricingCard = ({
         ))}
       </ul>
       <button
-        className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mt-auto ${isPopular
-          ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-indigo-500/25"
-          : darkMode
-            ? "bg-gray-700/50 text-white hover:bg-gray-600/50 border border-gray-600"
-            : "bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-300"
-          }`}
+        className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mt-auto transform
+          ${darkMode
+            ? "bg-gray-700/50 text-white border border-gray-600 hover:bg-indigo-600 hover:text-white"
+            : "bg-gray-100 text-gray-900 border border-gray-300 hover:bg-indigo-600 hover:text-white"
+          }
+  hover:scale-[1.03] hover:ring-2 hover:ring-indigo-400
+`}
+
       >
         Get Started
       </button>
@@ -1105,38 +1105,54 @@ export default function LandingPage() {
               <nav className="hidden md:flex items-center space-x-8">
                 <a
                   href="#features"
-                  className={`transition-colors duration-300 ${darkMode
-                    ? "text-gray-300 hover:text-indigo-400"
-                    : "text-gray-700 hover:text-indigo-600"
-                    }`}
+                  className={`relative transition-colors duration-300 
+                 ${darkMode
+                      ? "text-gray-300 hover:text-indigo-400"
+                      : "text-gray-700 hover:text-indigo-600"}
+                      after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] 
+                  ${darkMode ? "after:bg-indigo-400" : "after:bg-indigo-600"}
+                      after:transition-all after:duration-300 hover:after:w-full
+                     `}
                 >
                   Features
                 </a>
                 <a
                   href="#how-it-works"
-                  className={`transition-colors duration-300 ${darkMode
-                    ? "text-gray-300 hover:text-indigo-400"
-                    : "text-gray-700 hover:text-indigo-600"
-                    }`}
-                >
+                   className={`relative transition-colors duration-300 
+      ${darkMode 
+        ? "text-gray-300 hover:text-indigo-400" 
+        : "text-gray-700 hover:text-indigo-600"}
+      after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] 
+      ${darkMode ? "after:bg-indigo-400" : "after:bg-indigo-600"}
+      after:transition-all after:duration-300 hover:after:w-full
+    `}
+  >
                   How it Works
                 </a>
                 <a
                   href="#pricing"
-                  className={`transition-colors duration-300 ${darkMode
-                    ? "text-gray-300 hover:text-indigo-400"
-                    : "text-gray-700 hover:text-indigo-600"
-                    }`}
-                >
+                  className={`relative transition-colors duration-300 
+      ${darkMode 
+        ? "text-gray-300 hover:text-indigo-400" 
+        : "text-gray-700 hover:text-indigo-600"}
+      after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] 
+      ${darkMode ? "after:bg-indigo-400" : "after:bg-indigo-600"}
+      after:transition-all after:duration-300 hover:after:w-full
+    `}
+  >
                   Pricing
                 </a>
                 <a
                   href="#testimonials"
-                  className={`transition-colors duration-300 ${darkMode
-                    ? "text-gray-300 hover:text-indigo-400"
-                    : "text-gray-700 hover:text-indigo-600"
-                    }`}
-                >
+                 className={`relative transition-colors duration-300 
+      ${darkMode 
+        ? "text-gray-300 hover:text-indigo-400" 
+        : "text-gray-700 hover:text-indigo-600"}
+      after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] 
+      ${darkMode ? "after:bg-indigo-400" : "after:bg-indigo-600"}
+      after:transition-all after:duration-300 hover:after:w-full
+    `}
+  >
                   Reviews
                 </a>
                 <button
@@ -1446,7 +1462,7 @@ export default function LandingPage() {
         <section id="pricing" className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50'} transition-colors duration-300`}>
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl font-bold text-gray-900 ${darkMode ? `dark:text-white` : `dark:text-grey`} mb-4`}>
+              <h2 className={`text-4xl font-bold mb-4 transition-colors duration-300 ${darkMode ? "text-white" : "text-gray-900"}`}>
                 Choose Your Plan
               </h2>
 
