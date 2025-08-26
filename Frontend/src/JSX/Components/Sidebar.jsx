@@ -42,7 +42,7 @@ const Sidebar = ({
     { name: "Home", id: "home", icon: Home, href: "/app" },
     { name: "Mentoring", id: "mentoring", icon: Users, href: "/app/mentoring" },
     { name: "AIAssist", id: "ai-assist", icon: Bot, href: "/app/ai-assist" },
-    { name: "E-Library", id: "e-library", icon: BookOpen, href: "/e-library" },
+    { name: "E-Library", id: "e-library", icon: BookOpen, href: "/app/e-library" },
     { name: "Student Chat", id: "student-chat", icon: MessageCircle, href: "/student-chat" },
     { name: "Quizzes", id: "quizzes", icon: FileQuestion, href: "/app/quizzes" },
     { name: "Events", id: "events", icon: Calendar, href: "/events" },
