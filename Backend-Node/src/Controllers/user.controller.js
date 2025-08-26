@@ -408,37 +408,26 @@ const resendEmailVerification = AsyncHandler(async (req, res) => {
   )
 })
 
-// const sendMail = async (emailId, htmlContent) => {
-//   console.log("emailId", emailId, htmlContent);
-//   try {
-//     const token = jwt.sign({ emailId }, process.env.JWT_SECRET);
-//     const verifyLink = `${FRONTEND_URL}/verify-email?token=${token}`;
-//     const auth = nodemailer.createTransport({
-//       host: "smtp.gmail.com",
-//       port: 465,
-//       secure: true,
-//       auth: {
-//         user: "krishchothani259@gmail.com",
-//         pass: "dofsbprmfxdfljbe",
-//       },
-//     });
 const sendMail = async (emailId, htmlContent) => {
   console.log("emailId", emailId, htmlContent);
   try {
+    const token = jwt.sign({ emailId }, process.env.JWT_SECRET);
+    const verifyLink = `${FRONTEND_URL}/verify-email?token=${token}`;
     const auth = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 587, // Changed to 587 to match Spring Boot config
-      secure: false, // Use STARTTLS
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_ID_FOR_VERIFICATION, // Use .env variable
-        pass: process.env.EMAIL_PASSWORD_FOR_VERIFICATION, // Use .env variable
+        user: "krishchothani259@gmail.com",
+        pass: "dofsbprmfxdfljbe",
       },
     });
     const receiver = {
-      from: `"CKsEdu" <${process.env.EMAIL_ID_FOR_VERIFICATION}>`,
+      from: '"CksEdu" <krishchothani259@gmail.com>',
       to: emailId,
       ...htmlContent,
     };
+
 
     return new Promise((resolve, reject) => {
       auth.sendMail(receiver, (err, email_res) => {
@@ -451,35 +440,13 @@ const sendMail = async (emailId, htmlContent) => {
         }
       });
     });
+    console.log(
+      "-----------------------------------successfully send mail-------------------------------"
+    );
   } catch (error) {
     throw new ApiError(500, "Something went wrong while sending the email");
   }
 };
-    // const receiver = {
-    //   from: '"CksEdu" <krishchothani259@gmail.com>',
-    //   to: emailId,
-    //   ...htmlContent,
-    // };
-
-
-    // return new Promise((resolve, reject) => {
-    //   auth.sendMail(receiver, (err, email_res) => {
-    //     if (err) {
-    //       console.log("Error:", err);
-    //       reject(new Error("Email sending failed"));
-    //     } else {
-    //       console.log("Email Sent:", email_res);
-    //       resolve(email_res);
-    //     }
-    //   });
-//     });
-//     console.log(
-//       "-----------------------------------successfully send mail-------------------------------"
-//     );
-//   } catch (error) {
-//     throw new ApiError(500, "Something went wrong while sending the email");
-//   }
-// };
 
 const verifyEmail = AsyncHandler(async (req, res) => {
   try {
