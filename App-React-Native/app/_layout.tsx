@@ -21,6 +21,7 @@ export default function RootLayout() {
       <Drawer
         screenOptions={{
           headerShown: true,
+          headerTitle: '',
           drawerType: "slide",
           drawerActiveTintColor: "#4F46E5", // highlight
           drawerInactiveTintColor: "#555",
@@ -62,7 +63,86 @@ export default function RootLayout() {
             ),
           }}
         />
-        {/* Add other pages: library, chat, quizzes, events, etc. */}
+        <Drawer.Screen
+          name="elibrary"
+          options={{
+            drawerLabel: "E-Library",
+            title: "E-Library",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="library-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="studentchat"
+          options={{
+            drawerLabel: "Student Chat",
+            title: "Student Chat",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="chatbubbles-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="quizzes"
+          options={{
+            drawerLabel: "Quizzes",
+            title: "Quizzes",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="help-circle-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="events"
+          options={{
+            drawerLabel: "Events",
+            title: "Events",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="calendar-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="resources"
+          options={{
+            drawerLabel: "Resources",
+            title: "Resources",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="folder-open-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="counselling"
+          options={{
+            drawerLabel: "Counselling",
+            title: "Counselling",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="heart-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="leaderboard"
+          options={{
+            drawerLabel: "Leaderboard",
+            title: "Leaderboard",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="trophy-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="email"
+          options={{
+            drawerLabel: "Email",
+            title: "Email",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="mail-outline" size={size} color={color} />
+            ),
+          }}
+        />
       </Drawer>
 
       <StatusBar style="auto" />
