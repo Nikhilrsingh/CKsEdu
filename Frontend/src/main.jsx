@@ -157,6 +157,7 @@ import StudentDashboard from './JSX/Components/StudentDashboard';
 import StudentProfile from './JSX/Components/StudentProfile';
 import Mentoring from './JSX/Components/Mentoring';
 import AiAssist from './JSX/Components/AiAssist';
+import ElibraryPage from './JSX/Pages/ElibraryPage';
 import Resources from './JSX/Components/Resources';
 import CommunityPage from './JSX/Pages/CommunityPage';
 import CertificationsPage from './JSX/Pages/CertificationsPage';
@@ -200,6 +201,10 @@ const router = createBrowserRouter([
       {
         path: "ai-assist",
         element: <AiAssist />,
+      },
+      {
+        path:"e-library",
+        element: <ElibraryPage />
       },
       {
         path: "resources",
