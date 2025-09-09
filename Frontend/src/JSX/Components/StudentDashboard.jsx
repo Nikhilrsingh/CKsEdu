@@ -28,7 +28,7 @@ import {
   Star,
 } from "lucide-react";
 import { useTheme } from "../Context/ThemeContext";
-
+import { useNavigate } from "react-router-dom";
 const StudentDashboard = () => {
   const { darkMode } = useTheme();
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -112,17 +112,19 @@ const StudentDashboard = () => {
   ];
 
   const quickLinks = [
-    { icon: BookOpen, label: "Library", color: "from-blue-500 to-blue-600" },
+    { icon: BookOpen, label: "Library", color: "from-blue-500 to-blue-600",path:"/app/e-Library" },
     {
       icon: MessageCircle,
       label: "Chat",
       color: "from-green-500 to-green-600",
+      path:"/student-chat"
     },
-    { icon: Bot, label: "AI Assist", color: "from-purple-500 to-purple-600" },
+    { icon: Bot, label: "AI Assist", color: "from-purple-500 to-purple-600" ,path:"/app/ai-assist"},
     {
       icon: Users,
       label: "Peer Groups",
       color: "from-orange-500 to-orange-600",
+      path:"/app/mentoring"
     },
   ];
 
@@ -151,6 +153,8 @@ const StudentDashboard = () => {
       },
     },
   };
+
+  const navigate=useNavigate();
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
@@ -545,6 +549,7 @@ const StudentDashboard = () => {
                   {quickLinks.map((link, index) => (
                     <button
                       key={index}
+                      onClick={()=>navigate(link.path)}
                       className={`p-4 rounded-xl bg-gradient-to-r ${link.color} text-white hover:shadow-lg transition-all`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
