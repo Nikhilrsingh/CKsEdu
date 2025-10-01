@@ -37,7 +37,8 @@ const StudentDashboard = () => {
     minutes: 45,
     seconds: 30,
   });
-
+const [dailyGoal, setDailyGoal] = useState(0);
+const [studiedHours, setStudiedHours] = useState(0);
   const motivationalQuotes = [
     "Every expert was once a beginner. Keep going! 🚀",
     "Success is the sum of small efforts repeated daily. ✨",
@@ -153,8 +154,20 @@ const StudentDashboard = () => {
       },
     },
   };
-
   const navigate=useNavigate();
+  
+  const handleGoalSubmit = (e) => {
+    e.preventDefault();
+    const goalInput = e.target.elements.goal.value;
+    setDailyGoal(goalInput);
+    e.target.reset();
+  };
+
+  
+  const incrementStudiedHours = () => {
+    setStudiedHours(prev => Math.min(prev + 1, dailyGoal)); 
+  };
+
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
@@ -194,6 +207,32 @@ const StudentDashboard = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left Column */}
             <div className="lg:col-span-8 space-y-6">
+               {/* Daily Study Goal Widget */}
+              <div className={`rounded-2xl p-6 ${darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"} border shadow-sm`}>
+                <h2 className={`text-lg font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}>
+                  Daily Study Goal
+                </h2>
+                <form onSubmit={handleGoalSubmit} className="mt-4">
+                  <input
+                    type="number"
+                    name="goal"
+                    placeholder="Set your daily goal (hours)"
+                    className={`p-2 rounded-lg ${darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-900"}`}
+                    required
+                  />
+                  <button type="submit" className={`ml-2 p-2 rounded-lg ${darkMode ? "bg-blue-600 text-white" : "bg-blue-500 text-white"}`}>
+                    Set Goal
+                  </button>
+                </form>
+                <div className="mt-4">
+                  <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    Studied Hours: {studiedHours} / {dailyGoal}
+                  </p>
+                  <button onClick={incrementStudiedHours} className={`mt-2 p-2 rounded-lg ${darkMode ? "bg-green-600 text-white" : "bg-green-500 text-white"}`}>
+                    Increment Studied Hours
+                  </button>
+                </div>
+              </div>
               {/* Upcoming Events */}
               <div
                 className={`rounded-2xl p-6 ${darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"} border shadow-sm`}

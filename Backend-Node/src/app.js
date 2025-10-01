@@ -34,4 +34,7 @@ app.use(cookieParser());
 import userRouter from "./Routes/user.routes.js";
 app.use("/api/v1/users", userRouter);
 
-export { app };
+export { app }; 
+
+import dailyStudyGoalRouter from "./Routes/dailyStudyGoal.routes.js";
+app.use("/api/v1/goals", dailyStudyGoalRouter);
